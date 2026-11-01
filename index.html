@@ -165,41 +165,8 @@
         .robbery-table th { background-color: rgba(255, 183, 3, 0.1); color: var(--primary-color); font-weight: 700; }
         .robbery-table tr:hover { background-color: rgba(255, 255, 255, 0.02); }
 
-        /* --- إضافات المتجر الجديد --- */
-        .store-tabs { display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
-        .store-tab { background-color: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-color); padding: 10px 25px; border-radius: 30px; font-weight: 600; transition: all 0.3s ease; }
-        .store-tab:hover, .store-tab.active { background-color: rgba(255, 183, 3, 0.15); border-color: var(--primary-color); color: var(--primary-color); box-shadow: 0 0 10px var(--primary-glow); }
-        .store-content { display: none; }
-        .store-content.active { display: block; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      
         
-        .tier-title { color: var(--primary-color); font-size: 1.5rem; margin: 40px 0 20px; border-bottom: 2px dashed var(--border-color); padding-bottom: 10px; }
-        .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-        .store-card { padding: 2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .package-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
-        .package-price { font-size: 2rem; color: var(--primary-color); margin-bottom: 1.5rem; font-weight: 700; }
-        .package-features { list-style: none; color: var(--text-muted); margin-bottom: 2rem; flex-grow: 1; }
-        .package-features li { margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 5px;}
-
-        /* --- ستايل سلة المشتريات --- */
-        .cart-panel {
-            position: fixed; bottom: 30px; right: 30px; width: 320px;
-            background-color: var(--bg-panel); border: 1px solid var(--primary-color);
-            border-radius: 12px; padding: 20px; z-index: 1001; box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            display: none; flex-direction: column; gap: 15px;
-        }
-        [dir="rtl"] .cart-panel { right: auto; left: 30px; }
-        .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-weight: 700; font-size: 1.2rem; }
-        .cart-items { max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-        .cart-items::-webkit-scrollbar { width: 5px; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; background: var(--bg-dark); padding: 10px; border-radius: 8px; font-size: 0.9rem; }
-        .cart-item-info { display: flex; flex-direction: column; }
-        .cart-item-price { color: var(--primary-color); font-weight: 700; }
-        .remove-btn { background: transparent; border: none; color: #ff4d4d; font-size: 1.2rem; transition: transform 0.2s; }
-        .remove-btn:hover { transform: scale(1.1); color: #ff1a1a; }
-        .cart-footer { border-top: 1px solid var(--border-color); padding-top: 15px; display: flex; flex-direction: column; gap: 15px; }
-        .cart-total { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; }
-
         @media (max-width: 900px) {
             .top-navbar { flex-wrap: wrap; height: auto; padding: 15px; justify-content: center; gap: 15px; }
             .logo-area, .header-actions { min-width: auto; }
@@ -264,7 +231,7 @@
                     <h3>NYX</h3>
                 </div>
                 <div class="founder-card">
-                    <img src="pro.jfif" class="founder-avatar" alt="Abu Abdullah">
+                    <img src="pro.jfif" class="founder-avatar" alt="TEST">
                     <div class="founder-role" data-en="Dev & Owner" data-ar="مطور ومالك">Dev & Owner</div>
                     <h3>Abu Abdullah</h3>
                 </div>
@@ -480,195 +447,7 @@
             </div>
         </section>
         
-        <section id="store">
-            <h2 class="section-title" data-en="Server Store" data-ar="متجر السيرفر">متجر السيرفر</h2>
-            <p class="section-subtitle" style="margin: 0 auto 2rem auto; text-align: center;" data-en="Support the server and get premium features." data-ar="ادعم السيرفر واحصل على مميزات حصرية خاصة بك.">ادعم السيرفر واحصل على مميزات حصرية خاصة بك.</p>
-            
-            <div class="store-tabs">
-                <button class="store-tab active" onclick="switchStoreTab('carsTab')" data-en="Cars Section" data-ar="قسم السيارات">قسم السيارات</button>
-                <button class="store-tab" onclick="switchStoreTab('hqTab')" data-en="Headquarters (HQ)" data-ar="قسم المقرات">قسم المقرات</button>
-                <button class="store-tab" onclick="switchStoreTab('priorityTab')" data-en="Queue Priority" data-ar="قسم الأولوية">قسم الأولوية</button>
-            </div>
-
-            <div id="carsTab" class="store-content active">
-                <h3 class="tier-title" data-en="Tier 1: Practical Cars" data-ar="الفئة الأولى: سيارات عملية">الفئة الأولى: سيارات عملية</h3>
-                <div class="store-grid">
-                    <div class="store-card">
-                        <div class="package-name">Dodge Charger</div>
-                        <div class="package-price">$15</div>
-                        <ul class="package-features">
-                            <li data-en="Balanced Speed & Handling" data-ar="سرعة وتحكم متوازن">سرعة وتحكم متوازن</li>
-                            <li data-en="Custom Exterior Tuning" data-ar="تعديل خارجي مخصص">تعديل خارجي مخصص</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Dodge Charger', 15)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name">Ford Crown Victoria</div>
-                        <div class="package-price">$10</div>
-                        <ul class="package-features">
-                            <li data-en="High Durability" data-ar="قدرة تحمل عالية للصدمات">قدرة تحمل عالية للصدمات</li>
-                            <li data-en="Classic Look" data-ar="مظهر كلاسيكي فخم">مظهر كلاسيكي فخم</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Ford Crown Victoria', 10)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name">Toyota Camry</div>
-                        <div class="package-price">$8</div>
-                        <ul class="package-features">
-                            <li data-en="Excellent Fuel Economy" data-ar="اقتصادية جداً في الوقود">اقتصادية جداً في الوقود</li>
-                            <li data-en="Smooth Daily Drive" data-ar="مثالية للقيادة اليومية">مثالية للقيادة اليومية</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Toyota Camry', 8)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                </div>
-
-                <h3 class="tier-title" data-en="Tier 2: Sports Cars" data-ar="الفئة الثانية: سيارات رياضية">الفئة الثانية: سيارات رياضية</h3>
-                <div class="store-grid">
-                    <div class="store-card">
-                        <div class="package-name">Dodge Challenger</div>
-                        <div class="package-price">$30</div>
-                        <ul class="package-features">
-                            <li data-en="High Torque V8" data-ar="عزم دوران قوي وتسارع عالي">عزم دوران قوي وتسارع عالي</li>
-                            <li data-en="Aggressive Engine Sound" data-ar="صوت محرك رياضي مرعب">صوت محرك رياضي مرعب</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Dodge Challenger', 30)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name">BMW M5</div>
-                        <div class="package-price">$35</div>
-                        <ul class="package-features">
-                            <li data-en="Top Tier Handling" data-ar="ثبات خيالي على المنعطفات">ثبات خيالي على المنعطفات</li>
-                            <li data-en="Luxury Interior" data-ar="فخامة داخلية وتصميم عصري">فخامة داخلية وتصميم عصري</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('BMW M5', 35)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name">Ford Mustang GT</div>
-                        <div class="package-price">$28</div>
-                        <ul class="package-features">
-                            <li data-en="Perfect Drift Control" data-ar="تحكم ممتاز في الانجراف (درفت)">تحكم ممتاز في الانجراف (درفت)</li>
-                            <li data-en="Custom Bodykits" data-ar="تعديلات هيكل خارجية مميزة">تعديلات هيكل خارجية مميزة</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Ford Mustang GT', 28)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                </div>
-
-                <h3 class="tier-title" data-en="Tier 3: Supercars" data-ar="الفئة الثالثة: سيارات خارقة">الفئة الثالثة: سيارات خارقة</h3>
-                <div class="store-grid">
-                    <div class="store-card">
-                        <div class="package-name">Nissan GTR R35</div>
-                        <div class="package-price">$60</div>
-                        <ul class="package-features">
-                            <li data-en="Insane Launch Control" data-ar="انطلاقة صاروخية بدفع رباعي">انطلاقة صاروخية بدفع رباعي</li>
-                            <li data-en="Full Race Tuning" data-ar="تعديلات سباق كاملة متاحة">تعديلات سباق كاملة متاحة</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Nissan GTR R35', 60)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name">Bugatti Chiron</div>
-                        <div class="package-price">$100</div>
-                        <ul class="package-features">
-                            <li data-en="Highest Top Speed" data-ar="أعلى سرعة قصوى في السيرفر">أعلى سرعة قصوى في السيرفر</li>
-                            <li data-en="Exclusive Status" data-ar="هيبة حصرية وتصميم نادر">هيبة حصرية وتصميم نادر</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Bugatti Chiron', 100)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name">Lamborghini Huracan</div>
-                        <div class="package-price">$80</div>
-                        <ul class="package-features">
-                            <li data-en="Exotic Design" data-ar="تصميم هجومي جذاب للغاية">تصميم هجومي جذاب للغاية</li>
-                            <li data-en="Lightning Acceleration" data-ar="تسارع خاطف لا يضاهى">تسارع خاطف لا يضاهى</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Lamborghini Huracan', 80)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="hqTab" class="store-content">
-                <h3 class="tier-title" data-en="Properties & Bases" data-ar="الأملاك والمقرات">الأملاك والمقرات</h3>
-                <div class="store-grid">
-                    <div class="store-card">
-                        <div class="package-name" data-en="Small House HQ" data-ar="مقر منزل صغير">مقر منزل صغير</div>
-                        <div class="package-price">$40</div>
-                        <ul class="package-features">
-                            <li data-en="3 Car Garage" data-ar="كراج يتسع لـ 3 سيارات">كراج يتسع لـ 3 سيارات</li>
-                            <li data-en="Basic Storage" data-ar="مساحة تخزين أساسية">مساحة تخزين أساسية</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Small House HQ', 40)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name" data-en="Medium Villa" data-ar="فيلا متوسطة">فيلا متوسطة</div>
-                        <div class="package-price">$70</div>
-                        <ul class="package-features">
-                            <li data-en="6 Car Garage" data-ar="كراج يتسع لـ 6 سيارات">كراج يتسع لـ 6 سيارات</li>
-                            <li data-en="Private Gate" data-ar="بوابة إلكترونية خاصة">بوابة إلكترونية خاصة</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Medium Villa', 70)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card">
-                        <div class="package-name" data-en="Luxury Gang Mansion" data-ar="قصر عصابة فاخر">قصر عصابة فاخر</div>
-                        <div class="package-price">$150</div>
-                        <ul class="package-features">
-                            <li data-en="Helipad Included" data-ar="يحتوي على مهبط طائرات هيلي">يحتوي على مهبط طائرات هيلي</li>
-                            <li data-en="Huge Armory Room" data-ar="غرفة أسلحة وتخزين ضخمة">غرفة أسلحة وتخزين ضخمة</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Luxury Gang Mansion', 150)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                </div>
-            </div>
-
-            <div id="priorityTab" class="store-content">
-                <h3 class="tier-title" data-en="Server Entry Priority" data-ar="أولوية الدخول للسيرفر">أولوية الدخول للسيرفر</h3>
-                <div class="store-grid">
-                    <div class="store-card" style="border-color: #FFD700;">
-                        <div class="package-name" style="color: #FFD700;" data-en="Gold Priority" data-ar="أولوية ذهبية (الأقوى)">أولوية ذهبية (الأقوى)</div>
-                        <div class="package-price">$30</div>
-                        <ul class="package-features">
-                            <li data-en="Instant Queue Skip" data-ar="تخطي كامل لطابور الانتظار">تخطي كامل لطابور الانتظار</li>
-                            <li data-en="Premium Discord Role" data-ar="رتبة مميزة خاصة بالديسكورد">رتبة مميزة خاصة بالديسكورد</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Gold Priority', 30)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card" style="border-color: #C0C0C0;">
-                        <div class="package-name" style="color: #C0C0C0;" data-en="Silver Priority" data-ar="أولوية فضية (المتوسطة)">أولوية فضية (المتوسطة)</div>
-                        <div class="package-price">$20</div>
-                        <ul class="package-features">
-                            <li data-en="High Queue Position" data-ar="مركز متقدم جداً في الطابور">مركز متقدم جداً في الطابور</li>
-                            <li data-en="Fast Server Entry" data-ar="دخول سريع خلال دقائق">دخول سريع خلال دقائق</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Silver Priority', 20)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                    <div class="store-card" style="border-color: #cd7f32;">
-                        <div class="package-name" style="color: #cd7f32;" data-en="Bronze Priority" data-ar="أولوية برونزية (الأضعف)">أولوية برونزية (الأضعف)</div>
-                        <div class="package-price">$10</div>
-                        <ul class="package-features">
-                            <li data-en="Skip Half the Queue" data-ar="تجاوز نصف عدد المنتظرين">تجاوز نصف عدد المنتظرين</li>
-                            <li data-en="Economic Choice" data-ar="خيار اقتصادي ومفيد للزحام">خيار اقتصادي ومفيد للزحام</li>
-                        </ul>
-                        <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('Bronze Priority', 10)" data-en="Add to Cart" data-ar="إضافة للسلة">إضافة للسلة</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="cart-panel" id="cartPanel">
-        <div class="cart-header">
-            <span data-en="Shopping Cart" data-ar="سلة المشتريات">سلة المشتريات</span>
-            <i class="fas fa-shopping-cart" style="color: var(--primary-color);"></i>
-        </div>
-        <div class="cart-items" id="cartItems">
-            </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span data-en="Total:" data-ar="المجموع:">المجموع:</span>
-                <span id="cartTotalSum" style="color: var(--primary-color);">$0</span>
-            </div>
-            <button class="btn btn-primary" style="width: 100%; padding: 12px;" onclick="checkout()" data-en="Proceed to Checkout" data-ar="إتمام عملية الدفع">إتمام عملية الدفع</button>
-        </div>
-    </div>
-
+        
     <script>
         const sections = document.querySelectorAll("section");
         const navLinks = document.querySelectorAll(".nav-link");
